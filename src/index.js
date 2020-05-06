@@ -1,15 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { DndProvider } from "react-dnd";
+import Backend from "react-dnd-html5-backend";
+import "bootstrap/dist/css/bootstrap.css";
+import "./index.css";
+import Game from "./Game";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  return (
+    <div className="App">
+      <DndProvider backend={Backend}>
+        <Game />
+      </DndProvider>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+
+ReactDOM.render(<App />, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
